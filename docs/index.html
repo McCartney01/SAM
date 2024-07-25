@@ -165,7 +165,7 @@ Extensive experiments on the group captioning task and the storytelling task pro
 <!-- Intro Fig -->
 <section class="section hero is-light">
   <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
+    <div class="columns is-centered">
       <div class="column is-four-fifths">
         <div class="item">
           <!-- Your image here -->
@@ -184,7 +184,7 @@ However, the effectiveness of MLLMs, including GPT-4V, diminishes when faced wit
 <!-- Dataset -->
 <section class="section hero">
   <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
+    <div class="columns is-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Dataset Curation</h2>
         <div class="item">
@@ -239,8 +239,25 @@ However, the effectiveness of MLLMs, including GPT-4V, diminishes when faced wit
 </section>
 <!-- End image carousel -->
 
-
-
+<!-- Method -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Method</h2>
+        <div class="item">
+          <!-- Your image here -->
+          <img src="static/images/method.png" alt="Method Figure"/>
+          <h2 class="is-justify-content-left">
+            The core mechanism of our SAM model is the Bidirectional Semantic Guidance mechanism with two interactive processes: Assisted Visual Token Extraction (Part A) and Contextual Semantic Generation (Part B). In Part A, the Q-former module leverages the contextual semantics c<sub>i</sub>, which are generated from contextual images (<i>i.e.</i>, images other than the currently perceived image) in the multi-modal instruction in Part B, to guide the extraction of visual tokens from the currently perceived image features.
+In Part B, the W-former module is utilized to select the contextual semantics from the visual context of contextual images. This selection process is facilitated by the attention mechanism in the adaptive adjustment, along with assistance from the initial visual tokens h<sub>i</sub>, which are extracted from the currently perceived image in Part A.
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Method -->
 
 
 <!-- Paper poster -->
