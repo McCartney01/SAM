@@ -1,48 +1,96 @@
-# Academic Project Page Template
-This is an academic paper project page template.
-
-
-Example project pages built using this template are:
-- https://vision.huji.ac.il/spectral_detuning/
-- https://vision.huji.ac.il/podd/
-- https://dreamix-video-editing.github.io
-- https://vision.huji.ac.il/conffusion/
-- https://vision.huji.ac.il/3d_ads/
-- https://vision.huji.ac.il/ssrl_ad/
-- https://vision.huji.ac.il/deepsim/
+<h1 align = "center">
+Semantic Alignment for Multimodal Large Language Models
+</h1>
 
 
 
-## Start using the template
-To start using the template click on `Use this Template`.
 
-The template uses html for controlling the content and css for controlling the style. 
-To edit the websites contents edit the `index.html` file. It contains different HTML "building blocks", use whichever ones you need and comment out the rest.  
+## SAM model
 
-**IMPORTANT!** Make sure to replace the `favicon.ico` under `static/images/` with one of your own, otherwise your favicon is going to be a dreambooth image of me.
+The core mechanism of our SAM model is the **Bidirectional Semantic Guidance** mechanism with two interactive processes: 
 
-## Components
-- Teaser video
-- Images Carousel
-- Youtube embedding
-- Video Carousel
-- PDF Poster
-- Bibtex citation
+* **Assisted Visual Token Extraction** (Part A) 
+* **Contextual Semantic Generation** (Part B)
 
-## Tips:
-- The `index.html` file contains comments instructing you what to replace, you should follow these comments.
-- The `meta` tags in the `index.html` file are used to provide metadata about your paper 
-(e.g. helping search engine index the website, showing a preview image when sharing the website, etc.)
-- The resolution of images and videos can usually be around 1920-2048, there rarely a need for better resolution that take longer to load. 
-- All the images and videos you use should be compressed to allow for fast loading of the website (and thus better indexing by search engines). For images, you can use [TinyPNG](https://tinypng.com), for videos you can need to find the tradeoff between size and quality.
-- When using large video files (larger than 10MB), it's better to use youtube for hosting the video as serving the video from the website can take time.
-- Using a tracker can help you analyze the traffic and see where users came from. [statcounter](https://statcounter.com) is a free, easy to use tracker that takes under 5 minutes to set up. 
-- This project page can also be made into a github pages website.
-- Replace the favicon to one of your choosing (the default one is of the Hebrew University). 
-- Suggestions, improvements and comments are welcome, simply open an issue or contact me. You can find my contact information at [https://pages.cs.huji.ac.il/eliahu-horwitz/](https://pages.cs.huji.ac.il/eliahu-horwitz/)
+In the Assisted Visual Token Extraction process, the Q-former module leverages the contextual semantics from other images in the multi-modal instruction to guide the extraction of visual tokens from the currently  perceived image features.
 
-## Acknowledgments
-Parts of this project page were adopted from the [Nerfies](https://nerfies.github.io/) page.
+During the Contextual Semantic Generation phase, the W-former module is utilized to select the contextual semantics from the visual context of contextual images (*i.e.*, images other than the currently perceived image). This selection process is facilitated by the attention mechanism in the adaptive adjustment and the Q-former module, with assistance from the visual tokens extracted from the currently perceived images.
 
-## Website License
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+![images](images/method.png)
+
+## Cases
+
+SAM demonstrates strong abilities to perform group captioning and storytelling tasks. In **(a)**, SAM can identify commonalities between images accurately, while other MLLMs' answers either show weak instruction-following ability or contain redundancy and hallucinations. In **(b)**, while other MLLMs might treat the storytelling task as an image captioning task, SAM successfully discovers the correlation between the characters in the images and matches them with the names of the characters in the text, creating a coherent story.
+
+
+![images](images/case.png)
+
+
+## Getting Started
+
+**1. Installation**
+
+Git clone our repository and creating conda environment:
+
+```bash
+conda create -n sam python=3.8
+conda activate sam
+pip install -e .
+```
+
+**2. Prepare Model Weights**
+
+The current version of SAM supports Vicuna-7B  as the language model. Please first follow the [instructions](https://huggingface.co/lmsys/vicuna-7b-v1.1) to prepare Vicuna-v1.1 7B weights. 
+
+Then modify the ```llm_model``` in the [sam/configs/models/sam.yaml](sam/configs/models/sam.yaml#L26) to your vicuna 7b model path.
+
+Then download SAM weights from [Google Drive](), and modify the ```ckpt``` in the [sam/configs/models/sam.yaml](sam/configs/models/sam.yaml#L13) to your SAM checkpoint path.
+
+**3. Inference**
+
+```
+python inference.py
+```
+
+**4. Test**
+
+Firstly download test dataset. Download link:
+
+* [Google Drive]()
+
+We only provide AESOP, VIST and Conceptual datasets since the original datasets have been made public. 
+
+For Animal and Vehicle dataset, please obtain the original dataset from [https://nico.thumedialab.com/](https://nico.thumedialab.com/).
+
+For DM800K dataset, please obtain the original dataset from [https://github.com/jingqiangchen/ConCaps](https://github.com/jingqiangchen/ConCaps).
+
+Once you have obtained the original dataset containing images, feel free to contact us via email ([twu22@zju.edu.cn](twu22@zju.edu.cn)) for textual annotations.
+
+Once the datasets are prepared, run the following command:
+
+```
+python test.py -d your_dataset_path -s save_path
+```
+
+**5. Evaluation**
+
+First install the `rouge` and `coco` package through pip:
+
+```
+pip install rouge
+pip install "git+https://github.com/salaniz/pycocoevalcap.git"
+```
+
+Then run the following command:
+
+```
+python evaluate_score.py --result-dir save_path
+```
+
+**6. Training**
+
+Feel free to contact us via email ([twu22@zju.edu.cn](twu22@zju.edu.cn)) for training code and training dataset.
+
+## Acknowledgment
+
+We've built upon the [LAVIS](https://github.com/salesforce/LAVIS/tree/main) library by Salesforce for the development of our code.
