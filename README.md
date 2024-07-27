@@ -1,7 +1,19 @@
 <h1 align = "center">
 Semantic Alignment for Multimodal Large Language Models
 </h1>
+<div align='center'>
+  Tao Wu<sup>1,*</sup>, Mengze Li<sup>1,*</sup>, Jingyuan Chen<sup>1</sup>, Wei Ji<sup>2</sup>, Wang Lin<sup>1</sup>, Jinyang Gao<sup>3</sup>, Kun Kuang<sup>1</sup>, Zhou Zhao<sup>1</sup>, Fei Wu<sup>1</sup>
+</div>
 
+<div align='center'>
+  <sup>1</sup> Zhejiang University  &nbsp;&nbsp;&nbsp;
+                      <sup>2</sup> National University of Singapore &nbsp;&nbsp;&nbsp;
+                      <sup>3</sup> Alibaba Group
+</div>
+
+<div align='center'>
+  <sup>*</sup>Equal Contribution. <sup>&dagger;</sup>Corresponding Authors
+</div>
 
 
 
@@ -44,7 +56,7 @@ The current version of SAM supports Vicuna-7B  as the language model. Please fir
 
 Then modify the ```llm_model``` in the [sam/configs/models/sam.yaml](sam/configs/models/sam.yaml#L26) to your vicuna 7b model path.
 
-Then download SAM weights from [Google Drive](), and modify the ```ckpt``` in the [sam/configs/models/sam.yaml](sam/configs/models/sam.yaml#L13) to your SAM checkpoint path.
+Then download SAM weights from [Google Drive](https://drive.google.com/file/d/1_HwvTmE9ZJoK7KHuA-maP7YD_jRWArde/view?usp=drive_link), and modify the ```ckpt``` in the [sam/configs/models/sam.yaml](sam/configs/models/sam.yaml#L13) to your SAM checkpoint path.
 
 **3. Inference**
 
@@ -56,7 +68,7 @@ python inference.py
 
 Firstly download test dataset. Download link:
 
-* [Google Drive]()
+* [Google Drive](https://drive.google.com/drive/folders/1iBmnAgQeJcrzjRuf-opy_YLa-8wAZBku?usp=drive_link)
 
 We only provide AESOP, VIST and Conceptual datasets since the original datasets have been made public. 
 
@@ -64,7 +76,7 @@ For Animal and Vehicle dataset, please obtain the original dataset from [https:/
 
 For DM800K dataset, please obtain the original dataset from [https://github.com/jingqiangchen/ConCaps](https://github.com/jingqiangchen/ConCaps).
 
-Once you have obtained the original dataset containing images, feel free to contact us via email ([twu22@zju.edu.cn](twu22@zju.edu.cn)) for textual annotations.
+Once you have obtained the original dataset containing images, feel free to contact us via email (twu22@zju.edu.cn) for textual annotations.
 
 Once the datasets are prepared, run the following command:
 
@@ -89,7 +101,7 @@ python evaluate_score.py --result-dir save_path
 
 **6. Training**
 
-Feel free to contact us via email ([twu22@zju.edu.cn](twu22@zju.edu.cn)) for training code and training dataset.
+Feel free to contact us via email (twu22@zju.edu.cn) for training code and training dataset. It is highly recommended that you include your personal information, such as your name and contact details, when contacting us via email.
 
 ## Acknowledgment
 
