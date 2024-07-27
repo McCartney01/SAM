@@ -60,7 +60,7 @@ The current version of SAM supports Vicuna-7B  as the language model. Please fir
 
 Then modify the ```llm_model``` in the [sam/configs/models/sam.yaml](sam/configs/models/sam.yaml#L26) to your vicuna 7b model path.
 
-Then download SAM weights from [Google Drive](https://drive.google.com/file/d/1_HwvTmE9ZJoK7KHuA-maP7YD_jRWArde/view?usp=drive_link), and modify the ```ckpt``` in the [sam/configs/models/sam.yaml](sam/configs/models/sam.yaml#L13) to your SAM checkpoint path.
+Then download SAM weights from [Google Drive](https://drive.google.com/drive/folders/1yGQL5wgxmCSnQ0qUWLITWTxpPIKsMwtb?usp=drive_link), and modify the ```ckpt``` in the [sam/configs/models/sam.yaml](sam/configs/models/sam.yaml#L13) to your SAM checkpoint path.
 
 **3. Inference**
 
