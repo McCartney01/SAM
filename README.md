@@ -5,11 +5,15 @@ Semantic Alignment for Multimodal Large Language Models
   Tao Wu<sup>1,*</sup>, Mengze Li<sup>1,*</sup>, Jingyuan Chen<sup>1</sup>, Wei Ji<sup>2</sup>, Wang Lin<sup>1</sup>, Jinyang Gao<sup>3</sup>, Kun Kuang<sup>1</sup>, Zhou Zhao<sup>1</sup>, Fei Wu<sup>1</sup>
 </div>
 
+
+
 <div align='center'>
   <sup>1</sup> Zhejiang University  &nbsp;&nbsp;&nbsp;
                       <sup>2</sup> National University of Singapore &nbsp;&nbsp;&nbsp;
                       <sup>3</sup> Alibaba Group
 </div>
+
+
 
 <div align='center'>
   <sup>*</sup>Equal Contribution. <sup>&dagger;</sup>Corresponding Authors
