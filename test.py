@@ -62,8 +62,8 @@ for dataset in ['AESOP', 'VIST', 'DM800K', 'Conceptual', 'Animal', 'Vehicle']:
         for sid, gt, p in zip(samples['sample_id'],samples['response'],pred_responses):
             preds.append({'sample_id':sid.item(),'pred_response':p, 'gt_response':gt})
         
-        output_dir = os.path.join(args.save_dir, dataset)
-        if not os.path.exists(output_dir):
-            os.makedirs(output_dir)
-        with open(os.path.join(output_dir,'pred.json'),'w',encoding='utf8') as f:
-            json.dump(preds,f,indent=4,ensure_ascii=False)
+    output_dir = os.path.join(args.save_dir, dataset)
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+    with open(os.path.join(output_dir,'pred.json'),'w',encoding='utf8') as f:
+        json.dump(preds,f,indent=4,ensure_ascii=False)
