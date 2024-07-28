@@ -105,7 +105,7 @@ python evaluate_score.py --result-dir save_path
 
 **6. Training**
 
-Feel free to contact us via email (twu22@zju.edu.cn) for training code and training dataset. It is highly recommended that you include your personal information, such as your name and contact details, when contacting us via email.
+Feel free to contact us via email (twu22@zju.edu.cn) for training code and training dataset. It would be greatly appreciated if you could include your personal information, such as your name, affiliation and contact details, when requesting the code via email.
 
 ## Acknowledgment
 
