@@ -1,4 +1,0 @@
-assets
-images
-link
-result
